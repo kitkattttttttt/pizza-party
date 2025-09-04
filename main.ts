@@ -13,6 +13,9 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSp
     mp.changePlayerStateBy(mp.getPlayerBySprite(otherSprite), MultiplayerState.score, -1)
     sprite.setKind(SpriteKind.Player)
 })
+mp.onButtonEvent(mp.MultiplayerButton.A, ControllerButtonEvent.Released, function (player2) {
+    mp.getPlayerSprite(player2).setKind(SpriteKind.Player)
+})
 mp.onScore(20, function (thisPlayer) {
     game.gameOver(true)
 })
